@@ -19,4 +19,9 @@ public class DalmemberController {
 	public String signup() {
 		return "guest/signup";
 	}
+	
+	@RequestMapping("/guest/jusoPopup")
+	public String jusoPopup() {
+		return "guest/jusoPopup";
+	}
 }

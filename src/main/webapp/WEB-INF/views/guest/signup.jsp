@@ -5,6 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
+<script language="javascript">
+function goPopup(){
+	var pop = window.open("/guest/jusoPopup","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+}
+
+function jusoCallBack(dalMzipno,dalMaddr1,dalMaddr2){
+	document.memberSignup.dalMzipno.value = dalMzipno;
+	document.memberSignup.dalMaddr1.value = dalMaddr1
+	document.memberSignup.dalMaddr2.value = dalMaddr2
+}
+</script>
 </head>
 <body>
 	<div class="headTitle">
@@ -46,17 +57,22 @@
 					<td colspan="3"><input type="text" name="dalMtel" placeholder="예시) 010-xxxx-xxxx"></td>
 				</tr>
 				<tr>
-					<th>주소 <span class="checkPoint">*</span></th>
-					<td><input type="button" value="주소 검색" class="adressButton"></td> <!-- 주소 검색 API -->
-					<td><input type="text" name="dalMzipno" readonly placeholder="우편번호"></td>
-					<td><input type="text" name="dalMaddr" readonly placeholder="상세주소"></td> 
+					<th rowspan="2">주소 <span class="checkPoint">*</span></th>
+					<td colspan="2"><input type="button" value="주소 검색" class="adressButton" onclick="goPopup()"></td> <!-- 주소 검색 API -->
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="text" name="dalMzipno" readonly placeholder="우편번호"> <br>
+						<input type="text" name="dalMaddr1" readonly placeholder="상세주소"> <br>
+						<input type="text" name="dalMaddr2" readonly placeholder="상세주소">
+					</td>
 				</tr>
 				<tr>
 					<th>자기소개</th>
 					<td colspan="3"><textarea placeholder="자기소개를 입력해주세요." name="dalMprof" class="MyContent"></textarea></td>
 				</tr>
 			</table>
-			<input type="submit" value="회원가입" class="submitButton">
+			<input type="submit" value="회원가입" class="submitButton" onclick="return check();">
 			<input type="reset" value="초기화" class="resetButton">
 		</form>
 	</div>	
